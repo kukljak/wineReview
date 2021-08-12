@@ -1,0 +1,51 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content > a {
+    margin: 10px;
+    width: 30%;
+    text-decoration: none;
+    border: 2px solid darksalmon;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.content > a:hover {
+    background-color: rgba(53, 50, 50, 0.308)
+}
+
+.content > a > svg {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 20px auto auto;
+}
+.content > a > h2 {
+    margin: 20px 0;
+    text-align: center;
+    color:black;
+    font-family: 'Fugaz One', cursive;
+    font-weight: 200;
+}
+
+.title {
+    margin: 15px auto;
+}
+
+.title > h1 > svg {
+    height: 60px;
+    width: auto;
+    margin: 0 20px;
+}
+
+.title > h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem ;
+    color: #CD113B;
+    font-family: 'Sofia', cursive;
+}
