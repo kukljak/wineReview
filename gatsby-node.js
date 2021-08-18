@@ -10,24 +10,19 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const { data } = await graphql(`
     query MyQueryCreatePage {
-      allMarkdownRemark {
+      allPost {
         nodes {
-          frontmatter {
-            slug
-            data {
-              title
-            }
-          }
+          title
         }
       }
-    }        
+    }            
     `);
        
-    data.allMarkdownRemark.nodes.forEach(node => {
+    data.allPost.nodes.forEach(node => {
         actions.createPage({
-            path: "/" + node.frontmatter.data.title,
+            path: "/" + node.title,
             component: path.resolve("./src/templates/wineInfo.js"),
-            context: {slug: node.frontmatter.slug}
+            context: {title: node.title}
         })
     });
 }

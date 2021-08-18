@@ -1,47 +1,46 @@
 import { useStaticQuery, graphql, Link } from "gatsby";
 import React from "react";
-import "./mainContent.css"
+import "../components/less/mainContent.less"
 import WineBottleIcon from "./icons/wineBottleIcon";
 import LoveWineIcon from "./icons/LoveWineIcon"
 
 const Content = () => {
     const dataList  = useStaticQuery(graphql`
-      query MyQuery {
-        allMarkdownRemark {
-          nodes {
-            frontmatter {
-              slug
-              data {
-                points
-                title
-                description
-                taster_name
-                taster_twitter_handle
-                designation
-                variety
-                region_1
-                province
-                country
-                winery
-              }
-            }
-          }
+    query MyQuery {
+      allPost {
+        nodes {
+          id
+          description
+          country
+          designation
+          price
+          points
+          province
+          region_1
+          region_2
+          taster_name
+          taster_twitter_handle
+          title
+          variety
+          winery
         }
-      }    
+      }
+    }        
     `);
-      
+
+    
     return(
       <>
       <div className="title">
         <h1>I love <LoveWineIcon /> Wine</h1>
       </div>
       <div className="content">
-        {dataList && dataList.allMarkdownRemark.nodes.map( element => {
+        {dataList && dataList.allPost.nodes.map( element => {
           return(
-            <Link to={element.frontmatter.data.title} key={element.frontmatter.data.title}>
+            <Link to={element.title} key={element.id}>
             <WineBottleIcon />
             <h2>
-                {element.frontmatter.data.title}
+                {element.title}
             </h2>
           </Link>
           );

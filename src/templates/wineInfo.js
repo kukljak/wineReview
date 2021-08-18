@@ -1,11 +1,12 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout"
-import "./wineInfo.css"
+
+import "../components/less/wineInfo.less"
 
 const WineInfo = ({data}) => {
     
-    const {title, country, description, designation, province, winery} = data.markdownRemark.frontmatter.data ;
+    const {title, country, description, designation, province, winery} = data.allPost.nodes[0] ;
     
     return (
         <Layout >
@@ -44,22 +45,23 @@ const WineInfo = ({data}) => {
 export default WineInfo;
 
 export const query = graphql`
-query MyQueryItem($slug: String) {
-  markdownRemark(frontmatter: {slug: {eq: $slug}}) {
-    frontmatter {
-      data {
-        country
-        description
-        designation
-        points
-        taster_name
-        region_1
-        province
-        title
-        taster_twitter_handle
-        variety
-        winery
-      }
+query MyQueryItem($title: String) {
+  allPost(filter: {title: {eq: $title}}) {
+    nodes {
+      id
+      description
+      country
+      designation
+      price
+      points
+      province
+      region_1
+      region_2
+      taster_name
+      taster_twitter_handle
+      title
+      variety
+      winery
     }
   }
 }

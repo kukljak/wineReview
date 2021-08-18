@@ -1,0 +1,28 @@
+@font-family: 'Inconsolata', monospace;
+@marginAuto: auto;
+@text-align: center;
+@font-size: 28px;
+
+.wine-info {
+    width: 50%;
+    margin: @marginAuto;
+}
+
+.description {
+    h5 {
+        margin: 10px @marginAuto;
+        text-align: @text-align;
+        font-family: @font-family;
+        font-size: @font-size;
+    }
+}
+
+.country > h5,.country > p, .designation > h5, .designation > p, .province > h5, .province > p, .winery > h5, .winery > p {
+    margin: 0;
+    display: inline-block;
+    font-family: @font-family;
+}
+
+.country > p, .designation > p, .winery > p, .province > p {
+    padding-left: 5px;
+}

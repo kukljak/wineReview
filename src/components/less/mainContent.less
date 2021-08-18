@@ -1,0 +1,63 @@
+@flex: flex;
+@center: center;
+@font-family-Fugaz-cursive: 'Fugaz One', cursive;
+@font-family-Sofia-cursive: 'Sofia', cursive;
+@h1-font-size: 3rem ;
+
+.content {
+    display: @flex;
+    flex-wrap: wrap;
+    justify-content: @center;
+
+    a {
+        margin: 10px;
+        width: 30%;
+        text-decoration: none;
+        .product-border(10px , lightgray);
+
+        svg {
+            width: 250px;
+            height: 250px;
+            display: block;
+            margin: 20px auto auto;
+        }
+
+        h2 {
+            margin: 20px 0;
+            text-align: center;
+            color:black;
+            font-family: @font-family-Fugaz-cursive;
+            font-weight: 200;
+        }
+
+        &:hover {
+            background-color: rgba(53, 50, 50, 0.308)
+        }
+    }
+}
+
+.title {
+
+    margin: 15px auto;
+
+    h1 {
+        display: @flex;
+        justify-content: @center;
+        align-items: @center;
+        font-size: @h1-font-size;
+        color: #CD113B;
+        font-family: @font-family-Sofia-cursive;
+
+        svg {
+            height: 60px;
+            width: auto;
+            margin: 0 20px;
+        }
+    }
+}
+
+.product-border(@radius, @bgColor) {
+    border: 2px solid darksalmon;
+    border-radius: @radius;
+    background-color: @bgColor;
+}

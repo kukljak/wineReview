@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/wineReview",
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -6,6 +7,7 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    require.resolve(`./source-plugin`),
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -18,13 +20,7 @@ module.exports = {
         display: 'swap'
       }
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data`,
-      },
-    },
+    `gatsby-plugin-less`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
